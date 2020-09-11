@@ -1,0 +1,119 @@
+body {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 50px 0 20px;
+	font-size: 16px;
+	color: #333;
+	background-color: #e8f4ff;
+}
+
+#root {
+	max-width: 556px;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #fff;
+	box-shadow: 0 0 5px #777;
+}
+
+.comment__form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	width: 100%;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.comment-form__label {
+	width: 100%;
+	margin-bottom: 15px;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.comment-form__input,
+.comment-form__textarea {
+	width: 100%;
+	margin-top: 5px;
+	padding: 10px;
+	border: 1px solid #e8e8e8;
+	border-radius: 2px;
+	outline-offset: 4px;
+	transition: border-color .5s;
+}
+
+.comment-form__input::placeholder,
+.comment-form__textarea::placeholder {
+	font-weight: 300;
+	font-size: 14px;
+	color: #b8b8b8;
+}
+
+.comment-form__input {
+	height: 30px;
+}
+
+.comment-form__textarea {
+	height: 100px;
+	resize: none;
+}
+
+.comment__submit {
+	padding: 10px 20px;
+	border-color: #2d9cdb;
+	border-radius: 5px;
+	color: #fff;
+	background-color: #2d9cdb;
+	outline-offset: 4px;
+	cursor: pointer;
+}
+
+.comment__item {
+	margin-bottom: 35px;
+}
+
+.comment-item__article {
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 60px;
+	background: url('../img/Avatar.png') no-repeat top left;
+}
+
+.comment-article__author {
+	margin-right: 20px;
+	font-size: inherit;
+	color: #2d7dc8;
+}
+
+.comment-article__message {
+	width: 100%;
+	margin: 10px 0;
+}
+
+.comment-article__date {
+	font-size: 14px;
+	color: #c8c8c8;
+}
+
+.comment-article__remove {
+	padding: 0;
+	border: none;
+	font-size: 14px;
+	color: #c8c8c8;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.visually-hidden {
+	position: absolute !important;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	/* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	border: 0 !important;
+}
