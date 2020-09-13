@@ -17,8 +17,8 @@ class Widget extends React.Component {
 			date: '',
 			styleUser: '',
 			styleMessage: '',
-			display: 'block',
 			comment: this.getState(),
+			display: this.getItemAmount(),
 		};
 		this.handleChangeUser = this.handleChangeUser.bind(this);
 		this.handleChangeMessage = this.handleChangeMessage.bind(this);
@@ -35,6 +35,11 @@ class Widget extends React.Component {
 
 		localStorage.setItem('comment', JSON.stringify([]));
 		return [];
+	}
+
+	getItemAmount() {
+		const comment = localStorage.getItem('comment');
+		return comment === '[]' ? 'block' : 'none';
 	}
 
 	handleChangeUser(ev) {
@@ -87,11 +92,10 @@ class Widget extends React.Component {
 	handleRemove(id) {
 		this.setState((ev) => {
 			const comment = ev.comment.filter((item, j) => id !== j);
+			localStorage.setItem('comment', JSON.stringify(comment));
 			const display = document.querySelector('.comment__list').children.length - 1 > 0 ? 'none' : 'block';
 			return { comment, display };
 		});
-		const array = JSON.parse(localStorage.getItem('comment'));
-		localStorage.setItem('comment', JSON.stringify(array));
 	}
 
 	render() {
