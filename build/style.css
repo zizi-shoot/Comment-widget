@@ -490,6 +490,11 @@ body {
 	cursor: pointer;
 }
 
+.comment__list--empty {
+	margin: 30px 0 10px;
+	text-align: center;
+}
+
 .comment__item {
 	margin-bottom: 35px;
 }
