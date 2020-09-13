@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable class-methods-use-this */
 import React from 'react';
 import moment from 'moment';
 import CommentForm from './CommentForm';
