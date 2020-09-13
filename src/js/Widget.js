@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable class-methods-use-this */
 import React from 'react';
 import moment from 'moment';
 import CommentForm from './CommentForm';
@@ -17,6 +19,7 @@ class Widget extends React.Component {
 			date: '',
 			styleUser: '',
 			styleMessage: '',
+			display: 'block',
 			comment: this.getState(),
 		};
 		this.handleChangeUser = this.handleChangeUser.bind(this);
@@ -54,7 +57,9 @@ class Widget extends React.Component {
 		ev.preventDefault();
 		const date = moment().format('DD MMMM LTS');
 		this.setState({ date });
-		const { comment, user, message } = this.state;
+		const {
+			comment, user, message,
+		} = this.state;
 
 		if (user === '') {
 			this.setState({
@@ -65,12 +70,15 @@ class Widget extends React.Component {
 				styleMessage: 'red',
 			});
 		} else {
-			comment.push({ user, message, date });
+			comment.push({
+				user, message, date,
+			});
 			this.setState({
 				comment,
 				user: '',
 				message: '',
 				date: '',
+				display: 'none',
 				styleUser: '',
 				styleMessage: '',
 			});
@@ -81,16 +89,16 @@ class Widget extends React.Component {
 	handleRemove(id) {
 		this.setState((ev) => {
 			const comment = ev.comment.filter((item, j) => id !== j);
-			return { comment };
+			const display = document.querySelector('.comment__list').children.length - 1 > 0 ? 'none' : 'block';
+			return { comment, display };
 		});
 		const array = JSON.parse(localStorage.getItem('comment'));
-		console.log(array.splice(id, 1));
 		localStorage.setItem('comment', JSON.stringify(array));
 	}
 
 	render() {
 		const {
-			comment, user, message, date, styleUser, styleMessage,
+			comment, user, message, date, styleUser, styleMessage, display,
 		} = this.state;
 		return (
 			<section className="comments">
@@ -105,6 +113,7 @@ class Widget extends React.Component {
 					styleMessage={styleMessage}
 				/>
 				<CommentList
+					display={display}
 					comment={comment}
 					handleRemove={this.handleRemove}
 				/>

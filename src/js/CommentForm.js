@@ -1,18 +1,25 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
 class CommentForm extends React.Component {
 	render() {
+		const {
+			user, message, styleUser, styleMessage, handleSubmit, handleChangeUser, handleChangeMessage,
+		} = this.props;
 		return (
-			<form onSubmit={this.props.handleSubmit} className="comment__form comment-form">
+			<form onSubmit={handleSubmit} className="comment__form comment-form">
 				<label className="comment-form__label">
 					Author
 					<input
 						className="comment-form__input"
 						type="text"
 						placeholder="Enter your name..."
-						value={this.props.user}
-						onChange={this.props.handleChangeUser}
-						style={{borderColor: this.props.styleUser}}
+						value={user}
+						onChange={handleChangeUser}
+						style={{ borderColor: styleUser }}
 					/>
 				</label>
 				<label className="comment-form__label">
@@ -20,9 +27,9 @@ class CommentForm extends React.Component {
 					<textarea
 						className="comment-form__textarea"
 						placeholder="Enter your message..."
-						value={this.props.message}
-						onChange={this.props.handleChangeMessage}
-						style={{borderColor: this.props.styleMessage}}
+						value={message}
+						onChange={handleChangeMessage}
+						style={{ borderColor: styleMessage }}
 					/>
 				</label>
 				<button type="submit" className="comment__submit">Comment</button>
