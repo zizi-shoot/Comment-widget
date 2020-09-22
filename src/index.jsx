@@ -10,13 +10,13 @@ import comments from './reducers/comment.jsx';
 import './css/style.css';
 
 const initialState = () => {
-	const state = localStorage.getItem('comments');
+	const state = localStorage.getItem('_comments');
 
 	if (state) {
 		return JSON.parse(state);
 	}
 
-	localStorage.setItem('comments', JSON.stringify([]));
+	localStorage.setItem('_comments', JSON.stringify([]));
 	return [];
 };
 
@@ -27,7 +27,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-	localStorage.setItem('comments', JSON.stringify(store.getState()));
+	localStorage.setItem('_comments', JSON.stringify(store.getState()));
 });
 
 ReactDOM.render(
