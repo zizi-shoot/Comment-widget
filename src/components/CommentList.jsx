@@ -16,7 +16,7 @@ class CommentList extends Component {
 									<article className="comment-item__article comment-article">
 										<h2 className="comment-article__author">{comment.user}</h2>
 										<p className="comment-article__date">{comment.date}</p>
-										<p className="comment-article__message">{comment.message}</p>
+										<p className="comment-article__message">{comment.message, comment.id}</p>
 										<button
 											type="button"
 											className="comment-article__remove"
